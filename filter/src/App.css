@@ -1,0 +1,29 @@
+.App {
+    margin: auto;
+    width: 1000px;
+}
+
+button {
+    margin: 5px;
+    padding: 5px 10px;
+    background-color: transparent;
+    border: 1px solid #796666;;
+    margin-right: 5px;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: #2a2828;
+    color: #fff;
+}
+
+.projectlist {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+img {
+    display: inline-block;
+    padding: 5px;
+    max-width: 100%;
+}
