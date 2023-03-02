@@ -7,7 +7,7 @@ export default class Toolbar extends Component {
             <div>
                 {this.props.filters.map((el, index) => {
                     return(
-                        <button key={index} onClick={(e) => this.props.onSelectFilter(e.target)}>{el}</button>
+                        <button key={index} onClick={() => this.props.onSelectFilter(el)}>{el}</button>
                     );
                 })}             
             </div>

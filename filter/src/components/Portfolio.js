@@ -74,7 +74,7 @@ export default class Portfolio extends Component {
                 <Toolbar
                     filters={filters}
                     selected={this.state.selected}
-                    onSelectFilter={this.state.selected}/>
+                    onSelectFilter={this.onSelectFilter}/>
                 <ProjectList projects={this.state.projects}/>
             </>
         );
