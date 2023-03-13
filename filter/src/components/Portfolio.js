@@ -7,6 +7,7 @@ export default class Portfolio extends Component {
         super(props);
         this.state = {
             selected: "All",
+            filters: ["All", "Websites", "Flayers", "Business Cards"],
             projects : [{
                 img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/mon.jpg",
                 category: "Business Cards"
@@ -61,21 +62,30 @@ export default class Portfolio extends Component {
               }]
         };
         this.onSelectFilter = this.onSelectFilter.bind(this);
+        this.filterProjects = this.filterProjects.bind(this);
     }
 
-    onSelectFilter(filter) {
-        this.setState({projects: this.state.projects.filter(el => el === filter)})
+    onSelectFilter = (e) => {
+      this.setState({selected: e.target.innerHTML});
     }
+
+    filterProjects = () => {
+      if (this.state.selected === 'All') {
+        return this.state.projects;
+      }
+
+      return this.state.projects.filter(el => el.category === this.state.selected)
+    }
+
     render() {
 
-        const filters = ["All", "Websites", "Flayers", "Business Cards"];
         return(
             <>
                 <Toolbar
-                    filters={filters}
+                    filters={this.state.filters}
                     selected={this.state.selected}
                     onSelectFilter={this.onSelectFilter}/>
-                <ProjectList projects={this.state.projects}/>
+                <ProjectList projects={this.filterProjects()}/>
             </>
         );
     }

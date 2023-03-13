@@ -1,16 +1,14 @@
-import { Component } from "react";
+const Toolbar = ({filters, selected, onSelectFilter}) => {
 
-export default class Toolbar extends Component {
-
-    render() {
-        return(
-            <div>
-                {this.props.filters.map((el, index) => {
-                    return(
-                        <button key={index} onClick={() => this.props.onSelectFilter(el)}>{el}</button>
-                    );
-                })}             
-            </div>
-        );
-    }
+    return(
+        <div>
+            {filters.map((el, index) => {
+                return(
+                    <button key={index} onClick={onSelectFilter} className={el === selected ? 'active' : ''}>{el}</button>
+                );
+            })}             
+        </div>
+    );
 }
+
+export default Toolbar;
